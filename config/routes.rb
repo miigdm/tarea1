@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shows
   resources :quotes
   resources :episodes
   resources :characters
