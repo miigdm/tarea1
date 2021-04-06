@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Api:</strong>
+  <%= @character.api_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</p>
+
+<p>
+  <strong>Occupation:</strong>
+  <%= @character.occupation %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @character.img %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @character.status %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @character.nickname %>
+</p>
+
+<p>
+  <strong>Appearance:</strong>
+  <%= @character.appearance %>
+</p>
+
+<p>
+  <strong>Better call saul appearance:</strong>
+  <%= @character.better_call_saul_appearance %>
+</p>
+
+<p>
+  <strong>Portrayed:</strong>
+  <%= @character.portrayed %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @character.category %>
+</p>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>
