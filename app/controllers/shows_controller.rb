@@ -3,7 +3,12 @@ class ShowsController < ApplicationController
 
   # GET /shows or /shows.json
   def index
-    @shows = Show.all
+    @shows_service = GlobalShows.new
+    @shows_service.save_episodes
+    @shows_service.save_characters
+    @shows_service.save_quotes
+    #@shows = Episode.distinct.pluck(:series)
+    #@shows = Episode.select('season,series').distinct
   end
 
   # GET /shows/1 or /shows/1.json
@@ -60,6 +65,8 @@ class ShowsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_show
       @show = Show.find(params[:id])
+
+
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Api:</strong>
+  <strong>Episode Code:</strong>
   <%= @episode.api_id %>
 </p>
 
@@ -26,8 +26,10 @@
 </p>
 
 <p>
-  <strong>Characters:</strong>
-  <%= @episode.characters %>
+  <strong>Chracters:</strong>
+  <% @episode.characters.each do |character| %>
+      <%= link_to character, controller: "characters", action: "index", character_name: character %>
+  <% end %>
 </p>
 
 <p>
@@ -35,5 +37,4 @@
   <%= @episode.series %>
 </p>
 
-<%= link_to 'Edit', edit_episode_path(@episode) %> |
-<%= link_to 'Back', episodes_path %>
+

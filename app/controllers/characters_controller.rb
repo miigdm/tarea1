@@ -3,7 +3,8 @@ class CharactersController < ApplicationController
 
   # GET /characters or /characters.json
   def index
-    @characters = Character.all
+    @characters = Character.where(name: params[:character_name])
+    @quotes = Quote.where(author: params[:character_name])
   end
 
   # GET /characters/1 or /characters/1.json

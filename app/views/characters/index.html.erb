@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Characters</h1>
+<h2>Quotes</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Api</th>
+      <th>Character ID</th>
       <th>Name</th>
       <th>Occupation</th>
       <th>Img</th>
@@ -15,6 +16,7 @@
       <th>Better call saul appearance</th>
       <th>Portrayed</th>
       <th>Category</th>
+      <th>Quotes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,21 +27,25 @@
         <td><%= character.api_id %></td>
         <td><%= character.name %></td>
         <td><%= character.occupation %></td>
-        <td><%= character.img %></td>
+        <td><%= image_tag character.img %></td>
         <td><%= character.status %></td>
         <td><%= character.nickname %></td>
-        <td><%= character.appearance %></td>
-        <td><%= character.better_call_saul_appearance %></td>
+        <td><% character.appearance.each do |appearance| %>
+          <%= link_to appearance,  controller: "episodes", action: "index", season_id: appearance, series_id: "Breaking Bad"  %>
+        <% end %></td>
+        <td><% character.better_call_saul_appearance.each do |better_call_saul_appearance| %>
+          <%= link_to better_call_saul_appearance,  controller: "episodes", action: "index", season_id: better_call_saul_appearance, series_id: "Better Call Saul"  %>
+        <% end %></td>
         <td><%= character.portrayed %></td>
         <td><%= character.category %></td>
+        
+        <% @quotes.each do |quote| %>
+          <%= quote.quote %>
+        <% end %>
         <td><%= link_to 'Show', character %></td>
-        <td><%= link_to 'Edit', edit_character_path(character) %></td>
-        <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Character', new_character_path %>

@@ -3,7 +3,8 @@ class EpisodesController < ApplicationController
 
   # GET /episodes or /episodes.json
   def index
-    @episodes = Episode.all
+    @episodes = Episode.where(series: params[:series_id], season: params[:season_id])
+    #@episodes = Episode.where(series: series_id, season: season_id)
   end
 
   # GET /episodes/1 or /episodes/1.json
